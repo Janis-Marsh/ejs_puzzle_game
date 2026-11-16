@@ -7,4 +7,16 @@
     --panel: #6c584cff;
 }
 
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+}
 
+.logo-img {
+    display: block;
+    height: 44px;
+    max-width: 100px;
+}
