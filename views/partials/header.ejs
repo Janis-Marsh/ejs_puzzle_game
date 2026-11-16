@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>Puz-Zoo</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <header>
-        <a href="/"><img src=/assets/logo.png" alt="Puz-Zoo"></a>
+    <header class="site-header">
+        <a href="/"><img src="/assets/logo.png" alt="Puz-Zoo" class="logo-img"></a>
+
+        <% if (progress) { %>
+            <p><%= progress.current %> of <%= progress.total %></p>
+        <% } %>
     </header>
     <main>
