@@ -1,1 +1,8 @@
-module.exports = [' I have wings but I am not a bird. I am small, colorful and beautiful. I live in gardens and fields and forests. I used to be a caterpillar. What am I?', 'My name sounds like something you might use on your hair or eat for dessert. What am I?', 'Coolest', 'Seashore', 'Ylk whukh', '.-.. .. --- -.']
+module.exports = [
+    ' I have wings but I am not a bird. I am small, colorful and beautiful. I live in gardens and fields and forests. I used to be a caterpillar. What am I?',
+    'My name sounds like something you might use on your hair or eat for dessert. What am I?',
+    'Coolest',
+    'Seashore',
+    'Ylk whukh', 
+    '.-.. .. --- -.'
+]
