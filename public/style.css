@@ -183,7 +183,7 @@ button:hover, .button:hover {
 }
 
 .error-message {
-  color: red;
+  color: var(--accent2);
   font-weight: bold;
 }
 

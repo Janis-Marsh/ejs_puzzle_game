@@ -1,19 +1,19 @@
 <%- include('partials/header') %>
 
 <article class="page puzzle">
-  <h1 class="puzzle-title"></h1>
+  <h1 class="puzzle-title"><%= title %></h1>
 
   <section class="story-box" aria-label="Story so far">
-    <p class="story-text"></p>
+    <p class="story-text"><%= story %></p>
   </section>
 
   <section class="prompt-box" aria-label="Puzzle">
     <h2>The Puzzle</h2>
-    <p class="prompt-text"><%= questionText %></p>
+    <p class="prompt-text"><%= text %></p>
   </section>
 
   <section class="error-box">
-    <p class="error-message"></p>
+    <p class="error-message"><%= locals?.error %></p>
   </section>
 
   <form method="POST" class="answer-form">
