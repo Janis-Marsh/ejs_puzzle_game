@@ -22,17 +22,12 @@ app.use(express.static(path.join(__dirname, 'public'))) // public folder as home
 app.get('/', (req, res) => res.render('index', { startPath:puzzles[0].slug }))
 
 // Shows the puzzle at that secret path and its answer form
-app.get('/play/:slug', (req, res, next) => {
-    let question = puzzles.find(p => p.slug === req.params.slug).question
-    if (!question) return next()
-    if (question.question === 'victory') return res.redirect(`/victory/${req.params.slug}`)
-    res.render('puzzle', { ...question, index:puzzles.findIndex(p => question === p.question) })
+app.get('/play/:slug', gate, (req, res, next) => {
+    if (req.question === 'victory') return res.redirect(`/victory/${req.params.slug}`)
+    res.render('puzzle', { ...req.question, index:req.index })
 })
 // Checks the submitted answer for that puzzle
-app.post('/play/:slug', gate, (req, res, next) => {
-    let index = puzzles.findIndex(p => p.slug === req.params.slug)
-    if (!validate.integer(index)) return next()
-
+app.post('/play/:slug', gate, (req, res) => {
     try {
         guard.assert(validate.object(req.body), "Enter an answer")
 
@@ -40,22 +35,18 @@ app.post('/play/:slug', gate, (req, res, next) => {
         guard.assert(validate.nonEmptyString(answer), "Enter an answer")
         guard.assert(answer.length <= 100, 'The answer is too long')
 
-        if (answer === answers[index]) {
-            let next = puzzles[index + 1]
+        if (answer === answers[req.index]) {
+            let next = puzzles[req.index + 1]
             res.redirect(`/${next.question === 'victory' ? 'victory' : 'play'}/${next.slug}`)
         }
-        else res.render('puzzle', { ...puzzles[index].question, index, error:'Not quite. Try again.' })
+        else res.render('puzzle', { ...req.question, index:req.index, error:'Not quite. Try again.' })
     } catch (err) {
-        res.render('puzzle', { ...puzzles[index].question, index, error:err.message })
+        res.render('puzzle', { ...req.question, index:req.index, error:err.message })
     }
 })
 
 // Final page, at its own secret path
-app.get('/victory/:slug', (req, res, next) => {
-    let question = puzzles.find(p => p.slug === req.params.slug)
-    if (!question) return next()
-    res.render('victory')
-})
+app.get('/victory/:slug', gate, (req, res) => res.render('victory'))
 
 // 404
 app.use(/.*/, (req, res) => res.status(404).render('not-found'))
