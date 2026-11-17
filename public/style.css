@@ -181,3 +181,7 @@ button:hover, .button:hover {
 :focus-visible { 
   outline: 3px solid var(--accent2); outline-offset: 2px; 
 }
+
+.error-message {
+  color: red;
+}
