@@ -190,3 +190,7 @@ button:hover, .button:hover {
 .error-box {
   margin: 5px;
 }
+
+.tracker {
+  font-weight: 600;
+}
