@@ -36,6 +36,7 @@ main {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
+  margin-top: 25px;
 }
 
 h1 { 
@@ -54,7 +55,7 @@ a {
   padding: 0.75rem 2rem;
   background: var(--panel);
   color: var(--text);
-  border-bottom: 6px solid var(--accent);
+  border-bottom: 6px solid var(--accent2);
 }
 
 .logo {
@@ -77,7 +78,7 @@ a {
   padding: 1rem 2rem;
   background: var(--panel);
   color: var(--text);
-  border-top: 6px solid var(--accent);
+  border-top: 6px solid var(--accent2);
 }
 
 .site-footer a { 
@@ -179,4 +180,13 @@ button:hover, .button:hover {
 
 :focus-visible { 
   outline: 3px solid var(--accent2); outline-offset: 2px; 
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.error-box {
+  margin: 5px;
 }
