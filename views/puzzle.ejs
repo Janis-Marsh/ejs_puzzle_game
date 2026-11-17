@@ -1,11 +1,24 @@
-<%- include('./partials/head') %>
+<%- include('partials/header') %>
 
-<section class="prompt-box"></section>
+<article class="page puzzle">
+  <h1 class="puzzle-title"></h1>
 
-<form>
-    <label for="Your answer">Your answer</label>
-    <input type="text" id="answer" value="" required maxlength="100" placeholder="Type your answer here">
+  <section class="story-box" aria-label="Story so far">
+    <p class="story-text"></p>
+  </section>
+
+  <section class="prompt-box" aria-label="Puzzle">
+    <h2>The Puzzle</h2>
+    <p class="prompt-text"></p>
+  </section>
+
+
+  <form method="POST" class="answer-form">
+    <label for="answer">Your answer</label>
+    <input type="text" id="answer" name="answer" value="" required maxlength="100" autofocus>
     <button type="submit">Submit</button>
-</form>
+  </form>
 
-<%- include('./partials/foot') %>
+</article>
+
+<%- include('partials/footer') %>

@@ -1,5 +1,19 @@
-<%- include('./partials/head') %>
-    <p>Welcome</p>
+<%- include('partials/header') %>
 
-    <button>Start</button>
-<%- include('./partials/foot') %>
+<article class="page">
+  <h1>Welcome to Puz-Zoo</h1>
+
+  <section class="story-box">
+    <p class="story-text">
+      The zoo has closed for the night, and you are still inside. The gates are locked and
+      the lights are off. The zookeeper hid the way out, and the animals will only help
+      if you solve their puzzles.
+    </p>
+  </section>
+
+  <p>Solve every puzzle to escape. Wrong answers are fine, so keep trying.</p>
+
+  <p><a class="button" href="">Start</a></p>
+</article>
+
+<%- include('partials/footer') %>

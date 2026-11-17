@@ -1,8 +1,17 @@
-<%- include('./partials/head') %>
-<h1>Congratulations you escaped!</h1>
-<p>You solved all the puzzles and escaped with your life intact</p>
+<%- include('partials/header') %>
 
-<a href="/">
-    <button>Restart?</button>
-</a>
-<%- include('./partials/foot') %>
+<article class="page victory">
+  <h1>You escaped!</h1>
+
+  <section class="story-box">
+    <p class="story-text">
+      The keeper's door swings open and cool night air rushes in. The gates creak wide,
+      and behind you the animals settle back to sleep. You solved every puzzle and made
+      it out of Puz-Zoo.
+    </p>
+  </section>
+
+  <p><a class="button" href="/">Play again</a></p>
+</article>
+
+<%- include('partials/footer') %>
