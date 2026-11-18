@@ -23,8 +23,8 @@ app.get('/', (req, res) => res.render('index', { startPath:puzzles[0].slug }))
 
 // Shows the puzzle at that secret path and its answer form
 app.get('/play/:slug', gate, (req, res, next) => {
-    if (req.question === 'victory') return res.redirect(`/victory/${req.params.slug}`)
-    res.render('puzzle', { ...req.question, index:req.index })
+    if (res.locals.question === 'victory') return res.redirect(`/victory/${req.params.slug}`)
+    res.render('puzzle', { ...res.locals.question, index:res.locals.index })
 })
 // Checks the submitted answer for that puzzle
 app.post('/play/:slug', gate, (req, res) => {
@@ -35,13 +35,13 @@ app.post('/play/:slug', gate, (req, res) => {
         guard.assert(validate.nonEmptyString(answer), "Enter an answer")
         guard.assert(answer.length <= 100, 'The answer is too long')
 
-        if (answer === answers[req.index]) {
-            let next = puzzles[req.index + 1]
+        if (answer === answers[res.locals.index]) {
+            let next = puzzles[res.locals.index + 1]
             res.redirect(`/${next.question === 'victory' ? 'victory' : 'play'}/${next.slug}`)
         }
-        else res.render('puzzle', { ...req.question, index:req.index, error:'Not quite. Try again.' })
+        else res.render('puzzle', { ...res.locals.question, index:res.locals.index, error:'Not quite. Try again.' })
     } catch (err) {
-        res.render('puzzle', { ...req.question, index:req.index, error:err.message })
+        res.render('puzzle', { ...res.locals.question, index:res.locals.index, error:err.message })
     }
 })
 
