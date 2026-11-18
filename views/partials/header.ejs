@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puz-Zoo</title>
+    <link rel="icon" href="/assets/icon.png">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -12,6 +13,17 @@
     <img src="/assets/logo.png" alt="puz-zoo" class="logo-img">
   </a>
 
-  <p class="tracker">4 of 6</p>
+    <% if (typeof locals.index === 'number') { %>
+    <div class="progress">
+        <p class="progress-text">Puzzle <%= index + 1 %> of 6</p>
+        <div class="tracker" aria-hidden="true">
+        <% for (let i = 0; i < 6; i++) { %>
+            <img src="/assets/icon.png" alt=""
+                class="tracker-icon<%= i < index ? ' done' : '' %><%= i === index ? ' current' : '' %>">
+        <% } %>
+        </div>
+    </div>
+    <% } %>
+  
 </header>
 <main>

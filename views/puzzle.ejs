@@ -12,14 +12,15 @@
     <p class="prompt-text"><%= text %></p>
   </section>
 
-  <section class="error-box">
+  <section>
     <p class="error-message"><%= locals?.error %></p>
   </section>
 
   <form method="POST" class="answer-form">
-    <label for="answer">Your answer</label>
-    <input type="text" id="answer" name="answer" required maxlength="100" autofocus>
-    <button type="submit">Submit</button>
+        <label for="answer">Your answer</label>
+        <input type="text" id="answer" name="answer"
+            required maxlength="100" autocomplete="off" autofocus>
+        <button type="submit">Submit</button>
   </form>
 
 </article>

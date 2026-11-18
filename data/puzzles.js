@@ -22,11 +22,11 @@ module.exports = [
     {
         title: 'The Misty Hill',
         story: 'A tank slides aside and reveals a stairway winding up into the hills. the air turns cool nd misty, and the trees creak overhead. Someone has left a message in secret writing on the handrail',
-        text: 'Ylk whukh'
+        text: 'Slide each letter back as many places as the message has letters: zml xivli'
     },
     {
         title: 'The Golden Plain',
         story: 'The mist clears at the top of the hill and opens into a wide, golden field under the stars. Something large stirs in the tall grass, and a message has been scratched into a rusted gatepost. The way out must be close',
-        text: '.-.. .. --- -.'
+        text: 'Those aren\'t just stray marks on the page; every single one is spelling something out: .-.. .. --- -.'
     }
 ]
